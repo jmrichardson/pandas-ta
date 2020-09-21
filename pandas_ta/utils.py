@@ -424,6 +424,7 @@ from statsmodels.tsa.tsatools import detrend
 def verify_series(series: Series) -> Series:
     """If a Pandas Series return it."""
     if series is not None and isinstance(series, Series):
+        print("yo!")
         return detrend(series)
 
 
