@@ -419,11 +419,12 @@ def unsigned_differences(series: Series, amount: int = None, **kwargs) -> Series
 
     return positive, negative
 
-
+# Dirty hack to detrend
+from statsmodels.tsa.tsatools import detrend
 def verify_series(series: Series) -> Series:
     """If a Pandas Series return it."""
     if series is not None and isinstance(series, Series):
-        return series
+        return detrend(series)
 
 
 def weights(w):
